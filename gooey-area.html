@@ -1,0 +1,38 @@
+<link rel="import" href="https://rawgit.com/Download/polymer-cdn/master/lib/polymer/polymer.html">
+
+<style>
+  gooey-area > * {
+    position: absolute;
+  }
+</style>
+
+<dom-module id="gooey-area">
+  <template>
+    <style>
+      :host {
+        -webkit-filter: url("#gooey-area-filter");
+        filter: url('#gooey-area-filter');
+      }
+    </style>
+    
+    <svg version="1.1" width="0px" height="0px">
+      <defs>
+        <filter id="gooey-area-filter">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="goo" />
+          <feComposite in="SourceGraphic" in2="goo" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+    
+    <content></content>
+  </template>
+</dom-module>
+
+<script>
+
+  Polymer({
+    is: 'gooey-area'
+  });
+
+</script>

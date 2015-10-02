@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+    
+    <title>gooey-area Demo</title>
+    <script src="https://cdn.jsdelivr.net/webcomponentsjs/0.7.14/webcomponents-lite.min.js"></script>
+    <link rel="import" href="gooey-area.html">
+  </head>
+  <body>
+    <style>
+      .thing {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+      
+      .thing.big {
+        width: 300px;
+        height: 300px;
+      }
+      
+      .red {
+        background-color: #F14545;
+      }
+      
+      .blue {
+        background-color: #4545F1;
+      }
+      
+      .yellow {
+        background-color: #FCFD20;
+      }
+      
+      .clear {
+        background-color: rgba(200, 200, 239, 0.5);
+      }
+    </style>
+    
+    <h1>&lt;gooey-area&gt;</h1>
+    
+    <gooey-area redraw>
+      <div class="thing red"></div>
+      <div class="thing red"></div>
+      <div class="thing yellow"></div>
+      <div class="thing blue"></div>
+      <div class="big thing clear"></div>
+    </gooey-area>
+    
+    <!--make things draggable-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/draggabilly/1.2.0/draggabilly.pkgd.min.js"></script>
+    <script>
+      // if you have multiple .draggable elements
+      // get all draggie elements
+      var draggableElems = document.querySelectorAll('.thing, puyo-puyo');
+      // init Draggabillies
+      for ( var i=0, len = draggableElems.length; i < len; i++ ) {
+        var draggableElem = draggableElems[i];
+        new Draggabilly(draggableElem);
+      }
+    </script>
+  </body>
+</html>
